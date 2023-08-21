@@ -1,0 +1,57 @@
+{%extends "../base.html"%} {% block contenido %} 
+    <div class="box">         
+
+        <form action="" method="post">            
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="id" class="label">Id del Empleado:</label>                
+                </div>
+                <div class="field-body">                    
+                    <input type="text" id="id" name="id" class="input" placeholder="Ingrese el ID del Empleado">                    
+                </div>
+            </div>
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="name" class="label">Nombre:</label>                
+                </div>
+                <div class="field-body">                    
+                    <input type="text" id="name" name="name" class="input" placeholder="Ingrese el Nombre del Empleado">   
+                </div>
+            </div>
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="name" class="label">Departamento:</label>                
+                </div>
+                <div class="field-body"> 
+                    <div class="select">
+                        <select>
+                          <option>Seleccionar Departamento</option>
+                          <option value="administracion">Administración</option>
+                          <option value="tics">TICS</option>
+                          <option value="contabilidad">Contabilidad</option>
+                        </select>
+                      </div>                                       
+                </div>
+            </div>
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="age" class="label">Edad:</label>
+                </div>
+                <div class="field-body">                    
+                    <input type="number" id="age" name="age" class="input" placeholder="Ingrese la Edad del Empleado" >
+                </div>
+            </div>
+                    
+            <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <input type="submit" value="Submit" class="button is-link">                    
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light" href="#">Cancel</button>
+                </div>
+            </div>                                                       
+            
+        </form>    
+        
+    </div>      
+{% endblock contenido %}

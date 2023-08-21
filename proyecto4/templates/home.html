@@ -1,0 +1,16 @@
+{%extends "base.html"%}
+{% block contenido %}
+    <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+    </p>
+    <h1>Hobbies</h1>
+    <ul>
+        {% for hobbie in lista %}
+            {% if hobbie == "bailar" %}
+                <li style="background: red; color: white; text-transform: uppercase; padding: 5px; border-radius: 5px; margin-bottom: 2px;">{{forloop.counter}}-{{hobbie}}</li>
+            {% else %}
+                <li style="background: green; color: white; text-transform: capitalize; padding: 5px; border-radius: 5px;margin-bottom: 2px;">{{forloop.counter}}-{{hobbie}}</li>
+            {% endif %}        
+        {% endfor %}
+    </ul>
+{% endblock contenido %}

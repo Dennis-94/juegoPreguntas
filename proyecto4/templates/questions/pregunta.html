@@ -1,0 +1,38 @@
+{%extends "questions/principal.html"%}
+{% block card-preguntas %} 
+        <div class="row">
+            <div class="col">
+                <hr>        
+                <form action="{% url 'resultados' %}" method="POST" id="form-pregunta">
+                    {% csrf_token %}                    
+                    {% for pregunta in questions %}                                              
+                        <div class="card" style="width: 80%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{forloop.counter}}. Pregunta</h5>
+                                <p class="card-text">{{pregunta.question}}</p>
+                                <div class="d-flex flex-row justify-content-between">                                                        
+                                    {% for r in answers %}    
+                                        {% if r.question_id.id == pregunta.id%}                                            
+                                            <a href="#" onclick="seleccionarOpcion('{{r.is_correct}}', '{{r.answer}}','{{forloop.parentloop.counter}}')"  class="btn btn-primary" style="width=150px">{{forloop.counter}}). {{r.answer}} </a>
+                                        {% endif %}                   
+                                    {% endfor %}                                                             
+                                </div>
+                            </div>
+                        </div>       
+                        <label for="opcion{{forloop.counter}}">Opción Seleccionada:</label>
+                        <input type="text" name="opcion{{forloop.counter}}" id="opcion{{forloop.counter}}" class="my-4" required readonly>                 
+                        
+                    {% endfor %}     
+                    <input type="hidden" name="num-preguntas" id="num-preguntas" value=" {{questions|length}}">                
+                    <hr>
+                    <button type="submit" class="btn btn-primary">Completar</button>
+                </form>           
+            </div>
+        </div>
+        <script>
+            function seleccionarOpcion(valor, respuesta, elemento){                
+                event.preventDefault();
+                document.getElementById("opcion"+elemento).setAttribute("value", respuesta);
+            }
+        </script>
+{% endblock card-preguntas%}

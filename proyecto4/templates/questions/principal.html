@@ -1,0 +1,47 @@
+{%extends "../base.html"%} {% block contenido %} 
+    <h1 class="text-danger">Quién quiere ser millonario?</h1>
+    <main class="container m-5">
+        {% block card-preguntas %}
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <form action="{% url 'pregunta' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="flexRadioDefault"><strong>Seleccione la dificultad</strong></label>
+                    {% for level in niveles %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{level.id}}" value="{{level.id}}" required data-max-questions="{{ level.question_set.count }}">
+                            <label class="form-check-label" for="flexRadioDefault{{level.id}}">
+                                {{level.name}} 
+                            </label>
+                        </div>                                  
+                    {% endfor %}
+                    <br>
+                    <label for="num_preguntas"><strong>Cuántas preguntas desea?</strong></label>
+                    <br>
+                    <input type="number" name="num_preguntas" id="num_preguntas" required disabled>       
+                    <hr>
+                    <button type="submit" class="btn btn-primary">Comenzar</button>
+                </form> 
+            </div>
+        </div>
+        
+        
+        {% endblock card-preguntas %}              
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const radioButtons = document.querySelectorAll(".form-check-input");
+            const numPreguntasInput = document.getElementById("num_preguntas");
+    
+            radioButtons.forEach(radioButton => {
+                radioButton.addEventListener("change", function() {
+                    numPreguntasInput.max = this.dataset.maxQuestions;
+                    numPreguntasInput.min = 1;
+                    numPreguntasInput.disabled = !this.checked;
+                });
+            });
+        });
+    </script>
+    
+{% endblock contenido %}

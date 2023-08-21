@@ -1,0 +1,52 @@
+{%extends "../base.html"%} {% block contenido %} 
+    <div class="box">         
+
+        <form action="" method="post">            
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="author" class="label">Autor:</label>                
+                </div>
+                <div class="field-body">                    
+                    <input type="text" id="author" name="author" class="input" placeholder="Nombre de Autor">                    
+                </div>
+            </div>
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="title" class="label">Título:</label>                
+                </div>
+                <div class="field-body">                    
+                    <input type="text" id="title" name="title" class="input" placeholder="Título para el Post"> 
+                </div>
+            </div>
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="comment" class="label">Comentario:</label>                
+                </div>
+                <div class="field-body">                    
+                    <textarea class="textarea" id="comment" name="comment" placeholder="Escriba su comentario aquí..." rows="10"></textarea>
+                </div>
+            </div>            
+            
+                        
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="time" class="label">Fecha:</label>
+                </div>
+                <div class="field-body">                    
+                    <input type="datetime-local" name="time" id="time" />
+                </div>
+            </div>
+                    
+            <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <input type="submit" value="Submit" class="button is-link">                    
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light" href="#">Cancel</button>
+                </div>
+            </div>                                                       
+            
+        </form>    
+        
+    </div>      
+{% endblock contenido %}

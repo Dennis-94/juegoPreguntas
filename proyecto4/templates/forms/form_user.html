@@ -1,0 +1,36 @@
+{%extends "../base.html"%} {% block contenido %} 
+    {{title}}
+    <div class="box">         
+        <form action="" method="post">            
+            {% csrf_token %}
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="name" class="label">Nombre:</label>                
+                </div>
+                <div class="field-body">                    
+                    <input type="text" id="name" name="name" class="input" placeholder="Ingrese su nombre">                    
+                </div>
+            </div>
+
+            <div class="field is-horizontal">                
+                <div class="field-label is-normal">
+                    <label for="age" class="label">Edad:</label>
+                </div>
+                <div class="field-body">                    
+                    <input type="number" id="age" name="age" class="input" placeholder="Ingrese su edad">
+                </div>
+            </div>
+                    
+            <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <input type="submit" value="Submit" class="button is-link">                    
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light" href="#">Cancel</button>
+                </div>
+            </div>                                                       
+            
+        </form>    
+        
+    </div>      
+{% endblock contenido %}
